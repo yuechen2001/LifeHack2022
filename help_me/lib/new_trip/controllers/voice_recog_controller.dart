@@ -21,6 +21,19 @@ class VoiceRecogController extends GetxController {
     super.onInit();
   }
 
+  // @override
+  // void dispose() {
+  //   endSession();
+  //   super.dispose();
+  // }
+
+  Future<void> endSession() async {
+    playNextWord = false;
+    wordIndex = 0;
+    await speech.cancel();
+    await textReader.stop();
+  }
+
   void listen() async {
     if (!isListening) {
       bool available = await speech.initialize(
@@ -41,12 +54,6 @@ class VoiceRecogController extends GetxController {
     }
   }
 
-  void stoplisten() {
-    isListening = false;
-    speech.stop();
-    update();
-  }
-
   void readText() {
     textReader.speak(nouns[wordIndex]);
     if (wordIndex < finalIndex) {
@@ -65,26 +72,24 @@ class VoiceRecogController extends GetxController {
 
   void checkIfAwake() {
     if (playNextWord) {
+      print(playNextWord);
       readText();
-      listen();
-    }
-    Timer.periodic(const Duration(seconds: 3), (timer) {
-      stoplisten();
-
-      bool isCorrect;
-      isCorrect = checkForCorrectResponse();
       Timer.periodic(const Duration(seconds: 3), (timer) {
-        checkIfAwake();
+        bool isCorrect;
+        isCorrect = checkForCorrectResponse();
+        Timer.periodic(const Duration(seconds: 3), (timer) {
+          checkIfAwake();
+        });
+        // if (isCorrect) {
+        //   playNextWord = true;
+        //   checkIfAwake();
+        // } else {
+        //   // set off an alarm
+        //   stoplisten();
+        //   playNextWord = false;
+        //   print('You got it wrong!');
+        // }
       });
-      // if (isCorrect) {
-      //   playNextWord = true;
-      //   checkIfAwake();
-      // } else {
-      //   // set off an alarm
-      //   stoplisten();
-      //   playNextWord = false;
-      //   print('You got it wrong!');
-      // }
-    });
+    }
   }
 }

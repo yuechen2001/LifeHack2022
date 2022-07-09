@@ -21,7 +21,11 @@ class NewTripPage extends StatelessWidget {
           title: const Text('New Trip'),
           centerTitle: true,
           leading: GestureDetector(
-            onTap: () => Get.back(),
+            onTap: () async {
+              await _speechCon.endSession();
+              Get.delete<VoiceRecogController>();
+              Get.back();
+            },
             child: const Icon(Icons.arrow_back_ios_new),
           ),
         ),
@@ -36,7 +40,9 @@ class NewTripPage extends StatelessWidget {
                   repeat: true,
                   child: FloatingActionButton(
                     onPressed: () {
-                      _speechCon.checkIfAwake();
+                      _speechCon.playNextWord = true;
+                      _speechCon.listen();
+                      _speechCon.readText();
                     },
                     child: Icon(
                         _speechCon.isListening ? Icons.mic : Icons.mic_none),
@@ -47,10 +53,7 @@ class NewTripPage extends StatelessWidget {
           child: Column(
             children: [
               GestureDetector(
-                onTap: () {
-                  _speechCon.playNextWord = true;
-                  _speechCon.readText();
-                },
+                onTap: () {},
                 child: Container(
                   color: Colors.blue,
                   width: double.infinity,
