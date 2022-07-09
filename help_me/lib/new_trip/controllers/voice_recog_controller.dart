@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:audioplayers/audioplayers.dart';
 import 'package:english_words/english_words.dart';
 import 'package:flutter_tts/flutter_tts.dart' as tts;
 import 'package:get/get.dart';
@@ -8,11 +9,13 @@ import 'package:speech_to_text/speech_to_text.dart' as stt;
 class VoiceRecogController extends GetxController {
   late stt.SpeechToText speech;
   late tts.FlutterTts textReader;
+  late AudioPlayer audioPlayer;
   int wordIndex = 0;
   int finalIndex = nouns.length - 1;
   bool playNextWord = true;
   bool isListening = false;
   String text = 'Press the button and start speaking';
+  String safePassword = 'hello';
 
   @override
   void onInit() {
@@ -21,15 +24,10 @@ class VoiceRecogController extends GetxController {
     super.onInit();
   }
 
-  // @override
-  // void dispose() {
-  //   endSession();
-  //   super.dispose();
-  // }
-
   Future<void> endSession() async {
     playNextWord = false;
     wordIndex = 0;
+    await stopAlarm();
     await speech.cancel();
     await textReader.stop();
   }
@@ -43,8 +41,8 @@ class VoiceRecogController extends GetxController {
       isListening = true;
       speech.listen(onResult: (val) {
         text = val.recognizedWords;
+        update();
       });
-      update();
     }
   }
 
@@ -66,8 +64,35 @@ class VoiceRecogController extends GetxController {
   }
 
   bool checkForCorrectResponse() {
-    print("correct?: " + (nouns[wordIndex] == text).toString());
-    return nouns[wordIndex] == text;
+    return nouns[wordIndex - 1] == text;
+  }
+
+  Future<void> triggerAlarm() async {
+    audioPlayer = AudioPlayer();
+    await audioPlayer.play(AssetSource('audio/alarm.mp3'));
+    audioPlayer.onPlayerComplete.listen((event) {
+      audioPlayer.play(AssetSource('audio/alarm.mp3'));
+    });
+  }
+
+  Future<void> stopAlarm() async {
+    await audioPlayer.release();
+  }
+
+  Future<void> wakeDriverUp() async {
+    print("wake up!");
+    await triggerAlarm();
+    // Listen to keyword to stop alarm and run checkIfAwake again
+    await listen();
+    Timer(const Duration(seconds: 5), () async {
+      print("listening for password " + text);
+      if (text.trim().toLowerCase() == safePassword) {
+        print('password clear!');
+        playNextWord = true;
+        await stopAlarm();
+        checkIfAwake();
+      }
+    });
   }
 
   void checkIfAwake() async {
@@ -77,18 +102,16 @@ class VoiceRecogController extends GetxController {
       Timer(const Duration(seconds: 3), () async {
         await stopListen();
         bool isCorrect = checkForCorrectResponse();
-        Timer(const Duration(seconds: 3), () {
-          checkIfAwake();
-        });
-        // if (isCorrect) {
-        //   playNextWord = true;
-        //   checkIfAwake();
-        // } else {
-        //   // set off an alarm
-        //   stoplisten();
-        //   playNextWord = false;
-        //   print('You got it wrong!');
-        // }
+        if (isCorrect) {
+          playNextWord = true;
+          Timer(const Duration(seconds: 3), () {
+            checkIfAwake();
+          });
+        } else {
+          await stopListen();
+          playNextWord = false;
+          await wakeDriverUp();
+        }
       });
     }
   }
