@@ -17,30 +17,33 @@ class _CreateNewAccount extends State<CreateNewAccount> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'Stay Woke',
         home: Scaffold(
-            // backgroundColor: Colors.yellowAccent,
-            appBar: AppBar(backgroundColor: Colors.yellowAccent),
+            appBar: AppBar(
+              backgroundColor: Color.fromARGB(255, 255, 211, 34),
+              elevation: 0,
+              title: const Text(
+                "Drive Woke!",
+                style: TextStyle(color: Colors.black, fontSize: 32),
+              ),
+              centerTitle: true,
+            ),
             body: Padding(
-                padding: const EdgeInsets.all(10),
+                padding: const EdgeInsets.only(top: 16.0),
                 child: ListView(
                   children: <Widget>[
                     Container(
-                        alignment: Alignment.center,
-                        padding: const EdgeInsets.all(10),
-                        child: const Text(
-                          'Drive Woke',
-                          style: TextStyle(
-                              color: Colors.black,
-                              fontWeight: FontWeight.w500,
-                              fontSize: 32),
-                        )),
+                      alignment: Alignment.center,
+                      padding: const EdgeInsets.all(10),
+                    ),
                     Container(
                       padding: const EdgeInsets.all(10),
                       child: TextField(
                         controller: nameController,
                         decoration: const InputDecoration(
-                          border: OutlineInputBorder(),
+                          border: OutlineInputBorder(
+                            borderRadius:
+                                BorderRadius.all(const Radius.circular(12.0)),
+                          ),
                           labelText: 'User Name',
                         ),
                       ),
@@ -51,7 +54,10 @@ class _CreateNewAccount extends State<CreateNewAccount> {
                         obscureText: true,
                         controller: passwordController,
                         decoration: const InputDecoration(
-                          border: OutlineInputBorder(),
+                          border: OutlineInputBorder(
+                            borderRadius:
+                                BorderRadius.all(const Radius.circular(12.0)),
+                          ),
                           labelText: 'Email',
                         ),
                       ),
@@ -61,7 +67,10 @@ class _CreateNewAccount extends State<CreateNewAccount> {
                       child: TextField(
                         controller: nameController,
                         decoration: const InputDecoration(
-                          border: OutlineInputBorder(),
+                          border: OutlineInputBorder(
+                            borderRadius:
+                                BorderRadius.all(const Radius.circular(12.0)),
+                          ),
                           labelText: 'Password',
                         ),
                       ),
@@ -72,22 +81,14 @@ class _CreateNewAccount extends State<CreateNewAccount> {
                         obscureText: true,
                         controller: passwordController,
                         decoration: const InputDecoration(
-                          border: OutlineInputBorder(),
+                          border: OutlineInputBorder(
+                            borderRadius:
+                                BorderRadius.all(const Radius.circular(12.0)),
+                          ),
                           labelText: 'Re-enter Password',
                         ),
                       ),
                     ),
-                    // TextButton(
-                    //   onPressed: () {
-                    //     // print(nameController.text);
-                    //     // print(passwordController.text);
-                    //     DashboardPage();
-                    //     //forgot password screen
-                    //   },
-                    //   child: const Text(
-                    //     'Forgot Password',
-                    //   ),
-                    // ),
                     Container(
                         height: 50,
                         padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
@@ -95,10 +96,8 @@ class _CreateNewAccount extends State<CreateNewAccount> {
                           child: Text('Sign Up',
                               style: TextStyle(color: Colors.black)),
                           style: ElevatedButton.styleFrom(
-                              primary: Colors.yellowAccent),
+                              primary: Color.fromARGB(255, 255, 211, 34)),
                           onPressed: () {
-                            // print(nameController.text);
-                            // print(passwordController.text);
                             Navigator.push(
                               context,
                               MaterialPageRoute(

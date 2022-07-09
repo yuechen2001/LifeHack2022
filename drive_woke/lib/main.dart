@@ -19,9 +19,17 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Stay Woke',
+      // title: 'Stay Woke',
       home: Scaffold(
-        appBar: AppBar(backgroundColor: Colors.yellowAccent),
+        appBar: AppBar(
+          backgroundColor: Color.fromARGB(255, 255, 211, 34),
+          elevation: 0,
+          title: const Text(
+            "Drive Woke!",
+            style: TextStyle(color: Colors.black, fontSize: 32),
+          ),
+          centerTitle: true,
+        ),
         body: const MyStatefulWidget(),
       ),
     );
@@ -46,28 +54,17 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
         child: ListView(
           children: <Widget>[
             Container(
-                alignment: Alignment.center,
-                padding: const EdgeInsets.all(10),
-                child: const Text(
-                  'Drive Woke',
-                  style: TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.w500,
-                      fontSize: 32),
-                )),
-            // Container(
-            //     alignment: Alignment.center,
-            //     padding: const EdgeInsets.all(10),
-            //     child: const Text(
-            //       'Sign in',
-            //       style: TextStyle(fontSize: 20),
-            //     )),
+              alignment: Alignment.center,
+              padding: const EdgeInsets.all(10),
+            ),
             Container(
               padding: const EdgeInsets.all(10),
               child: TextField(
                 controller: nameController,
                 decoration: const InputDecoration(
-                  border: OutlineInputBorder(),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(const Radius.circular(12.0)),
+                  ),
                   labelText: 'User Name',
                 ),
               ),
@@ -78,7 +75,9 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 obscureText: true,
                 controller: passwordController,
                 decoration: const InputDecoration(
-                  border: OutlineInputBorder(),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(const Radius.circular(12.0)),
+                  ),
                   labelText: 'Password',
                 ),
               ),
@@ -96,11 +95,12 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
             // ),
             Container(
                 height: 50,
-                padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+                padding: const EdgeInsets.only(top: 16.0),
                 child: ElevatedButton(
                   child: const Text('Login',
                       style: TextStyle(color: Colors.black)),
-                  style: ElevatedButton.styleFrom(primary: Colors.yellowAccent),
+                  style: ElevatedButton.styleFrom(
+                      primary: Color.fromARGB(255, 255, 211, 34)),
                   onPressed: () {
                     // print(nameController.text);
                     // print(passwordController.text);
