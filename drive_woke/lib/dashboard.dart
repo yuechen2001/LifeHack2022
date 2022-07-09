@@ -23,7 +23,7 @@ class DashboardPage extends StatelessWidget {
                 children: const [
                   SettingsPage(),
                   HomePage(),
-                  HistoryPage(),
+                  TripHistoryPage(),
                 ],
               ),
             ),
@@ -34,7 +34,7 @@ class DashboardPage extends StatelessWidget {
               onTap: controller.changeTabIndex,
               type: BottomNavigationBarType.fixed,
               backgroundColor: Colors.white,
-              elevation: 0,
+              elevation: 20,
               items: const [
                 BottomNavigationBarItem(
                     icon: Icon(CupertinoIcons.settings), label: 'Settings'),
