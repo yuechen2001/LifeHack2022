@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:help_me/settings/screens/trip_history.dart';
 import 'package:help_me/settings/screens/change_passcode.dart';
-import 'package:help_me/main.dart';
+import 'package:help_me/authentication/screens/login_screen.dart';
 
 class SettingsPage extends StatelessWidget {
   const SettingsPage({Key? key}) : super(key: key);
@@ -51,7 +51,7 @@ class SettingsPage extends StatelessWidget {
                 )),
                 Center(
                     child: GestureDetector(
-                  onTap: () => Get.to(ChangePasscode()),
+                  onTap: () => Get.to(() => ChangePasscode()),
                   child: Padding(
                     padding: const EdgeInsets.symmetric(
                         vertical: 20, horizontal: 20),
@@ -70,7 +70,7 @@ class SettingsPage extends StatelessWidget {
                 )),
                 Center(
                     child: GestureDetector(
-                  onTap: () => Get.to(HistoryPage()),
+                  onTap: () => Get.to(() => HistoryPage()),
                   child: Padding(
                     padding: const EdgeInsets.symmetric(
                         vertical: 20, horizontal: 20),
@@ -155,7 +155,7 @@ class SettingsPage extends StatelessWidget {
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(20))),
                   // onPressed: () {},
-                  onPressed: () => Get.to(MyApp()),
+                  onPressed: () => Get.to(() => LoginPage()),
                   child: Text("Sign Out",
                       style: TextStyle(
                           fontSize: 16,
