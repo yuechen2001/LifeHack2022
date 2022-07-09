@@ -9,9 +9,9 @@ class SettingsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.yellowAccent,
+        backgroundColor: Color.fromARGB(255, 255, 211, 34),
         appBar: AppBar(
-          backgroundColor: Colors.yellowAccent,
+          backgroundColor: Color.fromARGB(255, 255, 211, 34),
           elevation: 0,
           title: const Text(
             "Settings",
@@ -186,7 +186,10 @@ class SettingsPage extends StatelessWidget {
                                           onPressed: () {
                                             Get.back();
                                           },
-                                          child: const Text("Close"))
+                                          child: const Text("Close",
+                                              style: TextStyle(
+                                                  color: Color.fromARGB(
+                                                      255, 255, 211, 34))))
                                     ]);
                               });
                         },
