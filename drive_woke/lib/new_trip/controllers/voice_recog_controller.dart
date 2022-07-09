@@ -14,6 +14,7 @@ class VoiceRecogController extends GetxController {
   int finalIndex = nouns.length - 1;
   bool playNextWord = true;
   bool isListening = false;
+  bool alarmPlaying = false;
   String text = 'Press the button and start speaking';
   String safePassword = 'hello';
 
@@ -76,11 +77,17 @@ class VoiceRecogController extends GetxController {
   }
 
   Future<void> stopAlarm() async {
-    await audioPlayer.release();
+    if (alarmPlaying) {
+      await audioPlayer.release();
+      alarmPlaying = false;
+      update();
+    }
   }
 
   Future<void> wakeDriverUp() async {
     print("wake up!");
+    alarmPlaying = true;
+    update();
     await triggerAlarm();
     // Listen to keyword to stop alarm and run checkIfAwake again
     await listen();

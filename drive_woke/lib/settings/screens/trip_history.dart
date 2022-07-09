@@ -9,14 +9,13 @@ class TripHistoryPage extends StatelessWidget {
 
   Widget buildTrip(TripHistory history) {
     return Padding(
-      padding: const EdgeInsets.only(top: 8.0),
+      padding: const EdgeInsets.only(top: 12.0),
       child: Container(
         width: double.infinity,
         height: 80,
-        decoration: BoxDecoration(
-            borderRadius: const BorderRadius.all(Radius.circular(15)),
-            border: Border.all(color: Colors.black, width: 1.5),
-            color: const Color.fromARGB(255, 215, 215, 15)),
+        decoration: const BoxDecoration(
+            borderRadius: BorderRadius.all(Radius.circular(15)),
+            color: Color.fromARGB(255, 215, 215, 15)),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
@@ -28,8 +27,10 @@ class TripHistoryPage extends StatelessWidget {
                     "Date of Trip: ${DateFormat("yyyy-MM-dd | hh:mm").format(history.date.toDate())}",
                     style: const TextStyle(
                         fontSize: 16, fontWeight: FontWeight.w600)),
-                Text("Duration: ${history.duration.toString()}",
+                const SizedBox(height: 4.0),
+                Text("Duration: ${history.duration.toString()} mins",
                     style: const TextStyle(fontSize: 14)),
+                const SizedBox(height: 2.0),
                 Text("Times you fell asleep: ${history.alarmCount.toString()}",
                     style: const TextStyle(fontSize: 14))
               ],
@@ -67,13 +68,14 @@ class TripHistoryPage extends StatelessWidget {
                   topRight: Radius.circular(50.0)),
               color: Colors.white),
           child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 32),
+            padding: const EdgeInsets.symmetric(vertical: 32.0, horizontal: 32),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const Text("Your past trips:",
                     style:
-                        TextStyle(fontSize: 21, fontWeight: FontWeight.bold)),
+                        TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
+                const SizedBox(height: 12.0),
                 StreamBuilder<List<TripHistory>>(
                     stream: FirebaseFirestore.instance
                         .collection('tripHistory')
