@@ -50,6 +50,9 @@ dependencies:
   passwordfield: ^0.1.0
   circular_countdown_timer: ^0.2.2
 
+  font_awesome_flutter: ^9.2.0
+  google_fonts: ^2.3.1
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
