@@ -1,11 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:help_me/contacts/screens/contact_screen.dart';
-import 'package:help_me/history/screens/history_screen.dart';
 import 'package:help_me/home/screens/home_page.dart';
-import 'package:help_me/resources/screens/resources_page.dart';
-import 'package:help_me/settings/screens/settings_page.dart';
+import 'package:help_me/settings/screens/main_settings.dart';
+import 'package:help_me/settings/screens/trip_history.dart';
 
 import 'controllers/navigation_controller.dart';
 
@@ -24,10 +22,8 @@ class DashboardPage extends StatelessWidget {
                 index: controller.tabIndex,
                 children: const [
                   SettingsPage(),
-                  ContactsPage(),
                   HomePage(),
                   HistoryPage(),
-                  ResourcesPage()
                 ],
               ),
             ),
@@ -43,13 +39,9 @@ class DashboardPage extends StatelessWidget {
                 BottomNavigationBarItem(
                     icon: Icon(CupertinoIcons.settings), label: 'Settings'),
                 BottomNavigationBarItem(
-                    icon: Icon(CupertinoIcons.phone), label: 'Contacts'),
-                BottomNavigationBarItem(
                     icon: Icon(CupertinoIcons.home), label: 'Home'),
                 BottomNavigationBarItem(
                     icon: Icon(CupertinoIcons.book), label: 'History'),
-                BottomNavigationBarItem(
-                    icon: Icon(CupertinoIcons.globe), label: 'Resources')
               ],
             ));
       },

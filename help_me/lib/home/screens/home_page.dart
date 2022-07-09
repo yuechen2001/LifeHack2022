@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:help_me/new_trip/screens/new_trip_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -7,9 +9,18 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Help"),
+        title: const Text("Home"),
+        centerTitle: true,
       ),
-      body: const Center(child: Text("Home")),
+      body: Center(
+          child: GestureDetector(
+        onTap: () => Get.to(NewTripPage()),
+        child: Container(
+          width: 20,
+          height: 20,
+          color: Colors.pink,
+        ),
+      )),
     );
   }
 }

@@ -15,7 +15,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      title: 'Help',
+      debugShowCheckedModeBanner: false,
+      title: 'Stay Woke',
       home: DashboardPage(),
     );
   }

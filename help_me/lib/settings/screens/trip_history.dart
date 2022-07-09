@@ -1,3 +1,4 @@
+import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
 
 class HistoryPage extends StatelessWidget {
@@ -9,6 +10,6 @@ class HistoryPage extends StatelessWidget {
         appBar: AppBar(
           title: const Text("Help"),
         ),
-        body: const Center(child: Text("History")));
+        body: Center(child: Text(nouns.toString())));
   }
 }

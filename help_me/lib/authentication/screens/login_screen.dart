@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class SettingsPage extends StatelessWidget {
-  const SettingsPage({Key? key}) : super(key: key);
+class LoginPage extends StatelessWidget {
+  const LoginPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -9,6 +9,6 @@ class SettingsPage extends StatelessWidget {
         appBar: AppBar(
           title: const Text("Help"),
         ),
-        body: const Center(child: Text("Settings")));
+        body: const Center(child: Text("Contacts")));
   }
 }
