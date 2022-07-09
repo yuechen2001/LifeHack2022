@@ -8,9 +8,9 @@ class ChangePasscode extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.yellowAccent,
+        backgroundColor: Color.fromARGB(255, 255, 211, 34),
         appBar: AppBar(
-          backgroundColor: Colors.yellowAccent,
+          backgroundColor: Color.fromARGB(255, 255, 211, 34),
           elevation: 0,
           title: const Text(
             "Change Safeword",

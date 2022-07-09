@@ -21,27 +21,27 @@ class DashboardPage extends StatelessWidget {
               child: IndexedStack(
                 index: controller.tabIndex,
                 children: const [
-                  SettingsPage(),
-                  HomePage(),
                   TripHistoryPage(),
+                  HomePage(),
+                  SettingsPage(),
                 ],
               ),
             ),
             bottomNavigationBar: BottomNavigationBar(
-              unselectedItemColor: Colors.black,
-              selectedItemColor: Colors.redAccent,
+              unselectedItemColor: Color.fromARGB(255, 123, 118, 109),
+              selectedItemColor: Color.fromARGB(255, 54, 48, 35),
               currentIndex: navCon.tabIndex,
               onTap: controller.changeTabIndex,
               type: BottomNavigationBarType.fixed,
-              backgroundColor: Colors.white,
+              backgroundColor: Color(0xffFFD322),
               elevation: 20,
               items: const [
                 BottomNavigationBarItem(
-                    icon: Icon(CupertinoIcons.settings), label: 'Settings'),
+                    icon: Icon(CupertinoIcons.book), label: 'History'),
                 BottomNavigationBarItem(
                     icon: Icon(CupertinoIcons.home), label: 'Home'),
                 BottomNavigationBarItem(
-                    icon: Icon(CupertinoIcons.book), label: 'History'),
+                    icon: Icon(CupertinoIcons.settings), label: 'Settings'),
               ],
             ));
       },

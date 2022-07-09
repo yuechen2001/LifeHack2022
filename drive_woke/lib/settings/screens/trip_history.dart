@@ -15,7 +15,7 @@ class TripHistoryPage extends StatelessWidget {
         height: 80,
         decoration: const BoxDecoration(
             borderRadius: BorderRadius.all(Radius.circular(15)),
-            color: Color.fromARGB(255, 215, 215, 15)),
+            color: Color.fromARGB(255, 255, 240, 173)),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
@@ -49,9 +49,9 @@ class TripHistoryPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.yellowAccent,
+      backgroundColor: Color.fromARGB(255, 255, 211, 34),
       appBar: AppBar(
-        backgroundColor: Colors.yellowAccent,
+        backgroundColor: Color.fromARGB(255, 255, 211, 34),
         elevation: 0,
         title: const Text(
           "History",
@@ -72,7 +72,7 @@ class TripHistoryPage extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text("Your past trips:",
+                const Text("Your Past Trips:",
                     style:
                         TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
                 const SizedBox(height: 12.0),
