@@ -40,6 +40,7 @@ class NewTripPage extends StatelessWidget {
                   repeat: true,
                   child: FloatingActionButton(
                     onPressed: () {
+                      _speechCon.playNextWord = true;
                       _speechCon.checkIfAwake();
                     },
                     child: Icon(
