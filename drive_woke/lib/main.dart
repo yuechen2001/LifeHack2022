@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Stay Woke',
       home: Scaffold(
-        appBar: AppBar(),
+        appBar: AppBar(backgroundColor: Colors.yellowAccent),
         body: const MyStatefulWidget(),
       ),
     );
@@ -49,11 +49,11 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 alignment: Alignment.center,
                 padding: const EdgeInsets.all(10),
                 child: const Text(
-                  'Stay Woke',
+                  'Drive Woke',
                   style: TextStyle(
-                      color: Colors.blue,
+                      color: Colors.black,
                       fontWeight: FontWeight.w500,
-                      fontSize: 30),
+                      fontSize: 32),
                 )),
             // Container(
             //     alignment: Alignment.center,
@@ -98,7 +98,9 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 height: 50,
                 padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
                 child: ElevatedButton(
-                  child: const Text('Login'),
+                  child: const Text('Login',
+                      style: TextStyle(color: Colors.black)),
+                  style: ElevatedButton.styleFrom(primary: Colors.yellowAccent),
                   onPressed: () {
                     // print(nameController.text);
                     // print(passwordController.text);
@@ -114,7 +116,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 TextButton(
                   child: const Text(
                     'Register here',
-                    style: TextStyle(),
+                    style: TextStyle(color: Colors.black),
                   ),
                   onPressed: () {
                     //signup screen

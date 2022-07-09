@@ -19,7 +19,8 @@ class _CreateNewAccount extends State<CreateNewAccount> {
     return MaterialApp(
         title: 'Stay Woke',
         home: Scaffold(
-            appBar: AppBar(title: const Text('Stay Woke')),
+            // backgroundColor: Colors.yellowAccent,
+            appBar: AppBar(backgroundColor: Colors.yellowAccent),
             body: Padding(
                 padding: const EdgeInsets.all(10),
                 child: ListView(
@@ -28,11 +29,11 @@ class _CreateNewAccount extends State<CreateNewAccount> {
                         alignment: Alignment.center,
                         padding: const EdgeInsets.all(10),
                         child: const Text(
-                          'Stay Woke',
+                          'Drive Woke',
                           style: TextStyle(
-                              color: Colors.blue,
+                              color: Colors.black,
                               fontWeight: FontWeight.w500,
-                              fontSize: 30),
+                              fontSize: 32),
                         )),
                     Container(
                       padding: const EdgeInsets.all(10),
@@ -91,7 +92,10 @@ class _CreateNewAccount extends State<CreateNewAccount> {
                         height: 50,
                         padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
                         child: ElevatedButton(
-                          child: const Text('Sign Up'),
+                          child: Text('Sign Up',
+                              style: TextStyle(color: Colors.black)),
+                          style: ElevatedButton.styleFrom(
+                              primary: Colors.yellowAccent),
                           onPressed: () {
                             // print(nameController.text);
                             // print(passwordController.text);
