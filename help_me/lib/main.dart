@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:help_me/dashboard.dart';
+import 'package:help_me/authentication/screens/signup_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -54,13 +55,13 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                       fontWeight: FontWeight.w500,
                       fontSize: 30),
                 )),
-            Container(
-                alignment: Alignment.center,
-                padding: const EdgeInsets.all(10),
-                child: const Text(
-                  'Sign in',
-                  style: TextStyle(fontSize: 20),
-                )),
+            // Container(
+            //     alignment: Alignment.center,
+            //     padding: const EdgeInsets.all(10),
+            //     child: const Text(
+            //       'Sign in',
+            //       style: TextStyle(fontSize: 20),
+            //     )),
             Container(
               padding: const EdgeInsets.all(10),
               child: TextField(
@@ -72,7 +73,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
               ),
             ),
             Container(
-              padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
+              padding: const EdgeInsets.all(10),
               child: TextField(
                 obscureText: true,
                 controller: passwordController,
@@ -82,25 +83,25 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 ),
               ),
             ),
-            TextButton(
-              onPressed: () {
-                // print(nameController.text);
-                // print(passwordController.text);
-                DashboardPage();
-                //forgot password screen
-              },
-              child: const Text(
-                'Forgot Password',
-              ),
-            ),
+            // TextButton(
+            //   onPressed: () {
+            //     // print(nameController.text);
+            //     // print(passwordController.text);
+            //     DashboardPage();
+            //     //forgot password screen
+            //   },
+            //   child: const Text(
+            //     'Forgot Password',
+            //   ),
+            // ),
             Container(
                 height: 50,
                 padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
                 child: ElevatedButton(
                   child: const Text('Login'),
                   onPressed: () {
-                    print(nameController.text);
-                    print(passwordController.text);
+                    // print(nameController.text);
+                    // print(passwordController.text);
                     Navigator.push(
                       context,
                       MaterialPageRoute(builder: (context) => DashboardPage()),
@@ -109,17 +110,18 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 )),
             Row(
               children: <Widget>[
-                const Text('Does not have account?'),
+                const Text("Don't have an account?"),
                 TextButton(
                   child: const Text(
-                    'Sign up',
+                    'Register here',
                     style: TextStyle(),
                   ),
                   onPressed: () {
                     //signup screen
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => DashboardPage()),
+                      MaterialPageRoute(
+                          builder: (context) => CreateNewAccount()),
                     );
                   },
                 )
