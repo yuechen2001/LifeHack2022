@@ -34,24 +34,24 @@ class VoiceRecogController extends GetxController {
     await textReader.stop();
   }
 
-  void listen() async {
-    if (!isListening) {
-      bool available = await speech.initialize(
-        onStatus: (val) => print('onStatus: $val'),
-        onError: (val) => print('onError: $val'),
-      );
-      if (available) {
-        isListening = true;
-        speech.listen(onResult: (val) {
-          text = val.recognizedWords;
-        });
-        update();
-      }
-    } else {
-      isListening = false;
-      speech.stop();
+  Future<void> listen() async {
+    bool available = await speech.initialize(
+      onStatus: (val) => print('onStatus: $val'),
+      onError: (val) => print('onError: $val'),
+    );
+    if (available) {
+      isListening = true;
+      speech.listen(onResult: (val) {
+        text = val.recognizedWords;
+      });
       update();
     }
+  }
+
+  Future<void> stopListen() async {
+    isListening = false;
+    await speech.stop();
+    update();
   }
 
   void readText() {
@@ -70,14 +70,14 @@ class VoiceRecogController extends GetxController {
     return nouns[wordIndex] == text;
   }
 
-  void checkIfAwake() {
+  void checkIfAwake() async {
     if (playNextWord) {
-      print(playNextWord);
+      await listen();
       readText();
-      Timer.periodic(const Duration(seconds: 3), (timer) {
-        bool isCorrect;
-        isCorrect = checkForCorrectResponse();
-        Timer.periodic(const Duration(seconds: 3), (timer) {
+      Timer(const Duration(seconds: 3), () async {
+        await stopListen();
+        bool isCorrect = checkForCorrectResponse();
+        Timer(const Duration(seconds: 3), () {
           checkIfAwake();
         });
         // if (isCorrect) {
