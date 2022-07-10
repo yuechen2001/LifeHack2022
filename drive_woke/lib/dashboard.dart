@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:help_me/history/screens/trip_history.dart';
 import 'package:help_me/home/screens/home_page.dart';
 import 'package:help_me/settings/screens/main_settings.dart';
-import 'package:help_me/settings/screens/trip_history.dart';
 
 import 'controllers/navigation_controller.dart';
 

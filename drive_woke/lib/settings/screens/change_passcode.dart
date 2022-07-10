@@ -8,13 +8,20 @@ class ChangePasscode extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Color.fromARGB(255, 255, 211, 34),
+        backgroundColor: const Color.fromARGB(255, 255, 211, 34),
         appBar: AppBar(
-          backgroundColor: Color.fromARGB(255, 255, 211, 34),
+          backgroundColor: const Color.fromARGB(255, 255, 211, 34),
           elevation: 0,
           title: const Text(
             "Change Safeword",
             style: TextStyle(color: Colors.black, fontSize: 32),
+          ),
+          leading: GestureDetector(
+            onTap: () async {},
+            child: const Icon(
+              Icons.arrow_back_ios_new,
+              color: Color.fromARGB(255, 255, 211, 34),
+            ),
           ),
           centerTitle: true,
         ),
@@ -132,51 +139,64 @@ class ChangePasscode extends StatelessWidget {
                                   'Should only contain lowercase letters',
                             ),
                             const SizedBox(height: 135),
-                            Align(
-                                alignment: Alignment.bottomCenter,
-                                child: Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                      horizontal: 16.0),
-                                  child: GestureDetector(
-                                    onTap: () {
-                                      showDialog(
-                                          context: context,
-                                          builder: (BuildContext context) {
-                                            return AlertDialog(
-                                                content: const Text(
-                                                    "Safeword Changed!"),
-                                                actions: [
-                                                  TextButton(
-                                                      onPressed: () {
-                                                        Get.back();
-                                                        Get.back();
-                                                      },
-                                                      child:
-                                                          const Text("Close"))
-                                                ]);
-                                          });
-                                    },
-                                    child: Container(
-                                      decoration: BoxDecoration(
-                                          border: Border.all(
-                                              color: Colors.black, width: 1.5),
-                                          borderRadius:
-                                              BorderRadius.circular(10.0)),
-                                      width: double.infinity,
-                                      child: const Padding(
-                                        padding:
-                                            EdgeInsets.symmetric(vertical: 8.0),
-                                        child: Text("Confirm",
-                                            textAlign: TextAlign.center,
-                                            style: TextStyle(
-                                                fontSize: 21,
-                                                color: Colors.black,
-                                                fontWeight: FontWeight.w600)),
-                                      ),
-                                    ),
-                                  ),
-                                )),
-                            const SizedBox(height: 135),
+                            GestureDetector(
+                              onTap: () {
+                                showDialog(
+                                    context: context,
+                                    builder: (BuildContext context) {
+                                      return AlertDialog(
+                                          content:
+                                              const Text("Safeword Changed!"),
+                                          actions: [
+                                            TextButton(
+                                                onPressed: () {
+                                                  Get.back();
+                                                  Get.back();
+                                                },
+                                                child: const Text("Close"))
+                                          ]);
+                                    });
+                              },
+                              child: Container(
+                                decoration: BoxDecoration(
+                                    color:
+                                        const Color.fromARGB(255, 255, 211, 34),
+                                    borderRadius: BorderRadius.circular(10.0)),
+                                width: double.infinity,
+                                child: const Padding(
+                                  padding: EdgeInsets.symmetric(vertical: 8.0),
+                                  child: Text("Confirm",
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                          fontSize: 21,
+                                          color: Colors.black,
+                                          fontWeight: FontWeight.w600)),
+                                ),
+                              ),
+                            ),
+                            const SizedBox(height: 32),
+                            GestureDetector(
+                              onTap: () {
+                                Get.back();
+                              },
+                              child: Container(
+                                decoration: BoxDecoration(
+                                    border: Border.all(
+                                        color: Colors.black, width: 1.5),
+                                    borderRadius: BorderRadius.circular(10.0)),
+                                width: double.infinity,
+                                child: const Padding(
+                                  padding: EdgeInsets.symmetric(vertical: 8.0),
+                                  child: Text("Back",
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                          fontSize: 21,
+                                          color: Colors.black,
+                                          fontWeight: FontWeight.w600)),
+                                ),
+                              ),
+                            ),
+                            const SizedBox(height: 120),
                           ])))),
         ));
   }

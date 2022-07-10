@@ -8,13 +8,20 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 255, 211, 34),
+      backgroundColor: const Color.fromARGB(255, 255, 211, 34),
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 255, 211, 34),
+        backgroundColor: const Color.fromARGB(255, 255, 211, 34),
         elevation: 0,
         title: const Text(
-          "History",
+          "Home",
           style: TextStyle(color: Colors.black, fontSize: 32),
+        ),
+        leading: GestureDetector(
+          onTap: () async {},
+          child: const Icon(
+            Icons.arrow_back_ios_new,
+            color: Color.fromARGB(255, 255, 211, 34),
+          ),
         ),
         centerTitle: true,
       ),
@@ -34,11 +41,11 @@ class HomePage extends StatelessWidget {
                 const Text("Your Statistics:",
                     style:
                         TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
-                SizedBox(height: 16),
+                const SizedBox(height: 16),
                 Container(
                     width: MediaQuery.of(context).size.width,
                     height: 100,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                         color: Color.fromARGB(255, 255, 240, 173),
                         borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(10),
@@ -48,25 +55,27 @@ class HomePage extends StatelessWidget {
                         )),
                     child: Container(
                       padding:
-                          const EdgeInsets.only(left: 20, top: 16, right: 20),
+                          const EdgeInsets.only(left: 16, top: 16, right: 16),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text("Frequency of Falling Asleep per Trip",
+                        children: const [
+                          Text("Total Number of Trips",
                               style: TextStyle(fontSize: 18)),
-                          SizedBox(height: 24),
+                          SizedBox(height: 16),
                           Align(
                               alignment: Alignment.bottomRight,
-                              child: Text("Every 20 Mins",
-                                  style: TextStyle(fontSize: 24))),
+                              child: Text("3",
+                                  style: TextStyle(
+                                      fontSize: 24,
+                                      fontWeight: FontWeight.w600))),
                         ],
                       ),
                     )),
-                SizedBox(height: 16),
+                const SizedBox(height: 16),
                 Container(
                     width: MediaQuery.of(context).size.width,
                     height: 100,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                         color: Color.fromARGB(255, 255, 221, 71),
                         borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(10),
@@ -76,25 +85,27 @@ class HomePage extends StatelessWidget {
                         )),
                     child: Container(
                       padding:
-                          const EdgeInsets.only(left: 20, top: 16, right: 20),
+                          const EdgeInsets.only(left: 16, top: 16, right: 16),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text("Average Trip Duration",
+                        children: const [
+                          Text("How often do you fall asleep per trip",
                               style: TextStyle(fontSize: 18)),
-                          SizedBox(height: 24),
+                          SizedBox(height: 16),
                           Align(
                               alignment: Alignment.bottomRight,
-                              child: Text("3 Hours 20 Mins",
-                                  style: TextStyle(fontSize: 24))),
+                              child: Text("~ Every 15 mins",
+                                  style: TextStyle(
+                                      fontSize: 24,
+                                      fontWeight: FontWeight.w600))),
                         ],
                       ),
                     )),
-                SizedBox(height: 16),
+                const SizedBox(height: 16),
                 Container(
                     width: MediaQuery.of(context).size.width,
                     height: 100,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                         color: Color.fromARGB(255, 255, 209, 0),
                         borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(10),
@@ -104,20 +115,23 @@ class HomePage extends StatelessWidget {
                         )),
                     child: Container(
                       padding:
-                          const EdgeInsets.only(left: 20, top: 16, right: 20),
+                          const EdgeInsets.only(left: 16, top: 16, right: 16),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text("Total Number of Trips",
+                        children: const [
+                          Text("Average Trip Duration",
                               style: TextStyle(fontSize: 18)),
-                          SizedBox(height: 24),
+                          SizedBox(height: 16),
                           Align(
                               alignment: Alignment.bottomRight,
-                              child: Text("7", style: TextStyle(fontSize: 24))),
+                              child: Text("~ 20 mins",
+                                  style: TextStyle(
+                                      fontSize: 24,
+                                      fontWeight: FontWeight.w600))),
                         ],
                       ),
                     )),
-                SizedBox(height: 93),
+                const SizedBox(height: 93),
                 Align(
                     alignment: Alignment.bottomCenter,
                     child: Padding(

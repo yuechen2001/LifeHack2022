@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:help_me/authentication/screens/login_screen.dart';
 import 'package:help_me/settings/screens/change_passcode.dart';
 
 class SettingsPage extends StatelessWidget {
@@ -18,6 +17,13 @@ class SettingsPage extends StatelessWidget {
             style: TextStyle(color: Colors.black, fontSize: 32),
           ),
           centerTitle: true,
+          leading: GestureDetector(
+            onTap: () async {},
+            child: const Icon(
+              Icons.arrow_back_ios_new,
+              color: Color.fromARGB(255, 255, 211, 34),
+            ),
+          ),
         ),
         body: Padding(
             padding: const EdgeInsets.only(top: 16.0),
@@ -222,7 +228,7 @@ class SettingsPage extends StatelessWidget {
                             padding:
                                 const EdgeInsets.symmetric(horizontal: 16.0),
                             child: GestureDetector(
-                              onTap: () => Get.to(() => const LoginPage()),
+                              onTap: () => Get.back(),
                               child: Container(
                                 decoration: BoxDecoration(
                                     border: Border.all(

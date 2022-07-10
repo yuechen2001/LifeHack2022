@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-import '../models/trip_history_model.dart';
+import '../../settings/models/trip_history_model.dart';
 
 class TripHistoryPage extends StatelessWidget {
   const TripHistoryPage({Key? key}) : super(key: key);
@@ -49,13 +49,20 @@ class TripHistoryPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 255, 211, 34),
+      backgroundColor: const Color.fromARGB(255, 255, 211, 34),
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 255, 211, 34),
+        backgroundColor: const Color.fromARGB(255, 255, 211, 34),
         elevation: 0,
         title: const Text(
           "History",
           style: TextStyle(color: Colors.black, fontSize: 32),
+        ),
+        leading: GestureDetector(
+          onTap: () async {},
+          child: const Icon(
+            Icons.arrow_back_ios_new,
+            color: Color.fromARGB(255, 255, 211, 34),
+          ),
         ),
         centerTitle: true,
       ),
