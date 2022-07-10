@@ -12,8 +12,7 @@ class NewTripPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final double _height = MediaQuery.of(context).size.height;
-    final double _width = MediaQuery.of(context).size.width;
+    final double width = MediaQuery.of(context).size.width;
 
     return Scaffold(
         backgroundColor: const Color.fromARGB(255, 255, 211, 34),
@@ -129,7 +128,7 @@ class NewTripPage extends StatelessWidget {
                                         fontWeight: FontWeight.w500)),
                                 GetBuilder<VoiceRecogController>(
                                   builder: (controller) => SizedBox(
-                                    width: _width * 0.35,
+                                    width: width * 0.35,
                                     child: Text(
                                       controller.text,
                                       textAlign: TextAlign.center,
