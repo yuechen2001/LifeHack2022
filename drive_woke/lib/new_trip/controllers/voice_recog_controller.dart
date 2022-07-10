@@ -1,20 +1,26 @@
 import 'dart:async';
 
 import 'package:audioplayers/audioplayers.dart';
+import 'package:circular_countdown_timer/circular_countdown_timer.dart';
 import 'package:english_words/english_words.dart';
 import 'package:flutter_tts/flutter_tts.dart' as tts;
 import 'package:get/get.dart';
 import 'package:speech_to_text/speech_to_text.dart' as stt;
 
 class VoiceRecogController extends GetxController {
+  final CountDownController countDownCon = CountDownController();
   late stt.SpeechToText speech;
   late tts.FlutterTts textReader;
   late AudioPlayer audioPlayer;
+
+  double frequency = 5;
   int wordIndex = 0;
   int finalIndex = nouns.length - 1;
+  bool tripStarted = false;
   bool playNextWord = true;
   bool isListening = false;
-  String text = 'Press the button and start speaking';
+  bool alarmPlaying = false;
+  String text = '';
   String safePassword = 'hello';
 
   @override
@@ -64,7 +70,7 @@ class VoiceRecogController extends GetxController {
   }
 
   bool checkForCorrectResponse() {
-    return nouns[wordIndex - 1] == text;
+    return nouns[wordIndex - 1] == text.trim().toLowerCase();
   }
 
   Future<void> triggerAlarm() async {
@@ -76,35 +82,50 @@ class VoiceRecogController extends GetxController {
   }
 
   Future<void> stopAlarm() async {
-    await audioPlayer.release();
+    if (alarmPlaying) {
+      await audioPlayer.release();
+      alarmPlaying = false;
+      update();
+    }
   }
 
   Future<void> wakeDriverUp() async {
     print("wake up!");
+    alarmPlaying = true;
+    update();
     await triggerAlarm();
     // Listen to keyword to stop alarm and run checkIfAwake again
     await listen();
     Timer(const Duration(seconds: 5), () async {
       print("listening for password " + text);
       if (text.trim().toLowerCase() == safePassword) {
-        print('password clear!');
-        playNextWord = true;
         await stopAlarm();
+        playNextWord = true;
+        countDownCon.start();
         checkIfAwake();
       }
     });
+  }
+
+  Future<void> pauseTrip() async {
+    countDownCon.reset();
+    await stopAlarm();
+    await speech.cancel();
+    await textReader.stop();
   }
 
   void checkIfAwake() async {
     if (playNextWord) {
       await listen();
       readText();
-      Timer(const Duration(seconds: 3), () async {
+      countDownCon.start();
+      Timer(Duration(seconds: frequency.toInt()), () async {
         await stopListen();
         bool isCorrect = checkForCorrectResponse();
         if (isCorrect) {
           playNextWord = true;
           Timer(const Duration(seconds: 3), () {
+            countDownCon.reset();
             checkIfAwake();
           });
         } else {

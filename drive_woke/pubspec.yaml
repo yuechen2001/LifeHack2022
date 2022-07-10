@@ -47,6 +47,11 @@ dependencies:
   english_words: ^4.0.0
   just_audio: ^0.9.27
   audioplayers: ^1.0.1
+  passwordfield: ^0.1.0
+  circular_countdown_timer: ^0.2.2
+
+  font_awesome_flutter: ^9.2.0
+  google_fonts: ^2.3.1
 
 dev_dependencies:
   flutter_test:
@@ -72,6 +77,7 @@ flutter:
 
   assets:
     - assets/audio/alarm.mp3
+    - assets/images/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
