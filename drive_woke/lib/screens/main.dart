@@ -12,13 +12,10 @@ void main() async {
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  static const String _title = 'Stay Woke';
-
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
         debugShowCheckedModeBanner: false,
-        // title: 'Stay Woke',
         home: Scaffold(
             backgroundColor: const Color.fromARGB(255, 255, 211, 34),
             appBar: AppBar(

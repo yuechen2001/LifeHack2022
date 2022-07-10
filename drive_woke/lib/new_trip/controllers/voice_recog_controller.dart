@@ -14,7 +14,7 @@ class VoiceRecogController extends GetxController {
   late AudioPlayer audioPlayer;
 
   double frequency = 5;
-  int wordIndex = 0;
+  int wordIndex = 3;
   int finalIndex = nouns.length - 1;
   bool tripStarted = false;
   bool playNextWord = true;
@@ -39,10 +39,7 @@ class VoiceRecogController extends GetxController {
   }
 
   Future<void> listen() async {
-    bool available = await speech.initialize(
-      onStatus: (val) => print('onStatus: $val'),
-      onError: (val) => print('onError: $val'),
-    );
+    bool available = await speech.initialize();
     if (available) {
       isListening = true;
       speech.listen(onResult: (val) {
@@ -90,14 +87,12 @@ class VoiceRecogController extends GetxController {
   }
 
   Future<void> wakeDriverUp() async {
-    print("wake up!");
     alarmPlaying = true;
     update();
     await triggerAlarm();
     // Listen to keyword to stop alarm and run checkIfAwake again
     await listen();
     Timer(const Duration(seconds: 5), () async {
-      print("listening for password " + text);
       if (text.trim().toLowerCase() == safePassword) {
         await stopAlarm();
         playNextWord = true;

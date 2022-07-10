@@ -5,7 +5,7 @@ import 'package:help_me/history/screens/trip_history.dart';
 import 'package:help_me/home/screens/home_page.dart';
 import 'package:help_me/settings/screens/main_settings.dart';
 
-import 'controllers/navigation_controller.dart';
+import '../controllers/navigation_controller.dart';
 
 class DashboardPage extends StatelessWidget {
   DashboardPage({Key? key}) : super(key: key);
@@ -28,12 +28,12 @@ class DashboardPage extends StatelessWidget {
               ),
             ),
             bottomNavigationBar: BottomNavigationBar(
-              unselectedItemColor: Color.fromARGB(255, 123, 118, 109),
-              selectedItemColor: Color.fromARGB(255, 54, 48, 35),
+              unselectedItemColor: const Color.fromARGB(255, 123, 118, 109),
+              selectedItemColor: const Color.fromARGB(255, 54, 48, 35),
               currentIndex: navCon.tabIndex,
               onTap: controller.changeTabIndex,
               type: BottomNavigationBarType.fixed,
-              backgroundColor: Color(0xffFFD322),
+              backgroundColor: const Color(0xffFFD322),
               elevation: 20,
               items: const [
                 BottomNavigationBarItem(
