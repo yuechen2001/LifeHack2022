@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:help_me/dashboard.dart';
+import 'package:help_me/screens/dashboard.dart';
 
-import 'createNewAccount.dart';
+import 'create_new_account.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
