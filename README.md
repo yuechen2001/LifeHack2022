@@ -1,15 +1,16 @@
 <a name="readme-top"></a>
 
+## Drive Woke - LifeHack 2022 
+### https://devpost.com/software/quest-busters
+
 <!-- PROJECT LOGO -->
 <br />
-<div align="center">
-  <a href="https://github.com/github_username/repo_name">
+<div align="left">
+  <p float="left">
     <img  height ="360" width="180" alt="original" src="https://user-images.githubusercontent.com/64315146/210560780-270f297c-8c85-4b06-ad12-267f1e3a8237.png">
-  </a>
-
-
-<h3 align="center">Drive Woke - LifeHack 2022</h3>
-
+    <img height ="360" width="180" alt="Screenshot 2023-01-05 155948" src="https://user-images.githubusercontent.com/64315146/210732119-d54ea529-3cd0-4c6a-b2a1-4989eb667186.png">
+    <img height ="360" width="180" alt="Screenshot 2023-01-05 155928" src="https://user-images.githubusercontent.com/64315146/210732126-15d6056a-6e8b-487b-979b-d1d9bd9b0a86.png">
+  </p>
 
 <!-- TABLE OF CONTENTS -->
 <details>
@@ -18,20 +19,19 @@
     <li>
       <a href="#about-the-project">About The Project</a>
       <ul>
-        <li><a href="#built-with">Built With</a></li>
+        <li>
+          <a href="#built-with">Built With</a>
+          <ul>
+            <li><a href="#frontend">Frontend</a></li>
+	          <li><a href="#backend">Backend</a></li>
+      </ul>
+        </li>
       </ul>
     </li>
     <li>
-      <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
-      </ul>
+      <a href="#what-the-application-does">What the application does</a>
     </li>
-    <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
+    <li><a href="#key-takeaways">Key Takeaways</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
@@ -42,121 +42,44 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+For LifeHack 2022, my team and I have chosen the theme of Safety, which encourages us to come up with a way to ensure the safety of our personal property.
 
-Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `github_username`, `repo_name`, `twitter_handle`, `linkedin_username`, `email_client`, `email`, `project_title`, `project_description`
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
+To address this problem statement, we have come up with Drive Woke!, an application that aims to keep drivers awake.
 
 
 ### Built With
 
-* [![Next][Next.js]][Next-url]
-* [![React][React.js]][React-url]
-* [![Vue][Vue.js]][Vue-url]
-* [![Angular][Angular.io]][Angular-url]
-* [![Svelte][Svelte.dev]][Svelte-url]
-* [![Laravel][Laravel.com]][Laravel-url]
-* [![Bootstrap][Bootstrap.com]][Bootstrap-url]
-* [![JQuery][JQuery.com]][JQuery-url]
+#### Frontend 
+* Flutter
+* Dart 
+
+#### Backend 
+* Cloud Firestore 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 
 <!-- GETTING STARTED -->
-## Getting Started
+## What the application does 
+### Demo video: https://youtu.be/su3_Y3yzeh8
+Our application’s main feature comprises both a text-to-speech function and a speech-to-text function. From the start of each trip, the app will articulate random word prompts at fixed intervals, which can be adjusted using the slider bar prior to the trip. The application detects whether a driver has responded correctly to the randomly-generated word prompt. If a driver cannot respond within the pre-set time limit, the application will set off an alarm to alert the driver. To turn off the alarm and continue with the word prompts, the driver simply has to respond with a safeword, which can be configured on our settings page before the trip.
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+The application will also record the trip history of each user in our database, including the trip’s duration as well as number of times he has triggered the alarm during the trip. Users can view this information on the Trip History Page. On the Home Page, each individual’s statistics are also calculated and displayed for ease of access.
 
-### Prerequisites
-
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
-
-### Installation
-
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
-   ```sh
-   git clone https://github.com/github_username/repo_name.git
-   ```
-3. Install NPM packages
-   ```sh
-   npm install
-   ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
-   ```
+<!-- Key Takeaways -->
+## Key Takeaways 
+| Challenges | Learning Points |
+| ------------- |-------------|
+| From this experience, one difficulty that we faced is trying to deconflict the many plugins that we had to implement throughout our application. This has taught us about the importance of state management and having a clear structure of our application. | Our key learning point from this event is the need to craft out a prototype before coding the application. It is important that we understand what we want to see in the app before developing it, which was what we did through low-fidelity (and hand-drawn) prototyping.|
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- USAGE EXAMPLES -->
-## Usage
-
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-_For more examples, please refer to the [Documentation](https://example.com)_
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- ROADMAP -->
-## Roadmap
-
-- [ ] Feature 1
-- [ ] Feature 2
-- [ ] Feature 3
-    - [ ] Nested Feature
-
-See the [open issues](https://github.com/github_username/repo_name/issues) for a full list of proposed features (and known issues).
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- CONTRIBUTING -->
-## Contributing
-
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
-Don't forget to give the project a star! Thanks again!
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- LICENSE -->
-## License
-
-Distributed under the MIT License. See `LICENSE.txt` for more information.
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
 
 <!-- CONTACT -->
 ## Contact
-
-Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email@email_client.com
-
-Project Link: [https://github.com/github_username/repo_name](https://github.com/github_username/repo_name)
+### I can be reached through - 
+- 📫 LinkedIn: https://www.linkedin.com/in/zhu-yuechen-1a603435/ 
+- 📧 Email: zhuyuechen@gmail.com
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -164,10 +87,7 @@ Project Link: [https://github.com/github_username/repo_name](https://github.com/
 
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
-
-* []()
-* []()
-* []()
+I would like to thank my group members - Kaushik, Jia Yi and Harry, for their support and contributions to the project. Without them, it would not have been possible to produce this application within a period of 48 hours. 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
